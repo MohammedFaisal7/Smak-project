@@ -1,0 +1,939 @@
+/* Start Variables */
+:root {
+    --main-color: #ffe600;
+    --padding-section: 80px;
+    --p-color: #707070;
+}
+/* End Variables */
+/* Start Globel Rules */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    text-transform: uppercase;
+}
+
+p {
+    font-weight: lighter;
+}
+
+/* End Globel Rules */
+/* Start Components */
+ .main-heading {
+    text-align: center;
+}
+
+ .main-heading span {
+    display: block;
+    color: var(--p-color);
+    text-transform: uppercase;
+    margin-bottom: 23px;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+ .main-heading h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.main-heading h2::after {
+    content: "";
+    width: 170px;
+    height: 2px;
+    background-color: var(--main-color);
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+ .main-heading p {
+    color: var(--p-color);
+    font-size: 16px;
+    margin-bottom: 50px;
+    line-height: 1.5;
+}
+
+button {
+    position: relative;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border: 4px solid var(--main-color);
+    transition: top, right, bottom, left, 0.3s;
+}
+
+button:hover:before {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+}
+/* End Components */
+
+/* Start Header */
+header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 2;
+    background: rgba(19, 19, 22, 0.2);
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    min-height: 97px;
+}
+
+header .logo {
+    width: 100px;
+}
+
+header nav {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+    header nav .toggle-menu {
+        display: none;
+    }
+}
+header nav ul {
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    header nav ul {
+        display: none;
+    }
+
+    header nav .toggle-menu:hover + ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+}
+
+header nav ul li {
+    position: relative;
+}
+
+header nav ul li a {
+    display: block;
+    padding: 40px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    header nav ul li a {
+        padding: 12px;
+        margin-left: 40px;
+    }
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+    color: var(--main-color);
+}
+
+header nav ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    left: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) {
+    header nav ul li:not(:last-child)::after {
+        left: 35px;
+    }
+}
+
+/* End Header */
+/* Start Landing */
+.landing {
+    background-image: url(../images/slider.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
+}
+
+.landing .overlay {
+    width: 100%;
+    background-color: rgb(0 0 0 / 60%);
+    position: relative;
+    top: 55%;
+    height: 350px;
+    transform: translateY(-50%);
+} 
+
+.landing .overlay .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 60%;
+}
+
+.landing .overlay .content h1 {
+    margin: 0;
+    color: white;
+    text-transform: uppercase;
+    font-size: 65px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1199px) {
+    .landing .overlay .content h1 {
+        font-size: 30px;
+    } 
+}
+
+.landing .overlay .content button {
+    background-color: var(--main-color);
+    padding: 10px 35px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+/* End Landing */
+/* Start Services */
+.services {
+    padding-top: var(--padding-section);
+    padding-bottom: var(--padding-section);
+    background-color: #FBFBFB;
+}
+
+.services .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.services .box-container .box {
+    padding: 30px;
+}
+
+@media (max-width: 767px) {
+    .services .box-container .box {
+        padding: 0;
+    }
+}
+
+.services .box-container .box i {
+    background-color: var(--main-color);
+    color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px;
+
+}
+
+.services .box-container .box h3 {
+    margin: 0 auto 15px;
+    text-align: center;
+}
+
+.services .box-container .box p {
+    color: var(--p-color);
+    font-size: 16px;
+    text-align: center;
+}
+
+/* End Services */
+/* Start Task */
+.task {
+    padding-top: var(--padding-section);
+    padding-bottom: var(--padding-section);
+    background-image: url(../images/how-we-do-it.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 60vh;
+    position: relative;
+}
+
+.task::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(19, 19, 22, 0.9);
+}
+
+.task h3 {
+    font-size: 20px;
+    color: white;
+}
+
+.task p {
+    font-size: 16px;
+    color: white;
+}
+
+.task .text,
+.task .boxes {
+    z-index: 2;
+    position: relative;
+}
+
+.task .text {
+    text-align: center;
+    color: white;
+}
+
+.task .text p {
+    margin: 10px auto 20px;
+    width: 80%;
+}
+
+.task .boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 15px;
+}
+
+@media (max-width: 767px) {
+    .task .boxes {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+.task .boxes .box {
+    text-align: center;
+}
+
+.task .boxes .box i {
+    color: var(--main-color);
+}
+
+.task .boxes .box h3 {
+    margin: 20px auto 10px;
+}
+
+.task .boxes .box p {
+    line-height: 1.5;
+}
+/* End Task */
+/* Start References */
+.reference {
+    padding-top: var(--padding-section);
+    padding-bottom: var(--padding-section);
+}
+
+.reference ul {
+    text-align: center;
+}
+
+.reference ul li {
+    position: relative;
+    display: inline-block;
+    padding: 40px 18px;
+    color: #707070;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.reference ul li.active,
+.reference ul li:hover {
+    color: var(--main-color);
+}
+
+.reference ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    left: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.reference .img-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reference .img-container .box {
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .reference .img-container .box {
+        flex-basis: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .reference .img-container .box {
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .reference .img-container .box {
+        flex-basis: 25%;
+    }
+}
+
+.reference .img-container .box .caption {
+    text-transform: uppercase;
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: fit-content;
+    transition: 0.3s ;
+}
+
+.reference .img-container .box:hover .caption {
+    top: 50%;
+}
+
+.reference .img-container .box .caption h4 {
+    margin: 0 auto 40px;
+}
+
+.reference h4::after {
+    content: "";
+    width: 170px;
+    height: 2px;
+    background-color: var(--main-color);
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.reference .text {
+    text-align: center;
+}
+
+.reference .text h3 {
+    margin: 30px 0 15px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.reference .text p {
+    color: #707070;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.reference .text button {
+background-color: var(--main-color);
+border: none;
+padding: 10px 35px;
+font-size: 15px;
+cursor: pointer;
+}
+/* End References */
+/* Start Number */
+.number {
+    background-image: url(../images/we-are-proud.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 50vh;
+    position: relative;
+    padding-bottom: var(--padding-section);
+}
+
+.number::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.number .text {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.number .text h3 {
+    margin: 40px 0 20px;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.number .text p {
+    width: 65%;
+    margin: 0 auto 40px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.number .number-box {
+    text-transform: uppercase;
+    display: flex;
+    gap: 40px;
+}
+
+@media (max-width: 991px) {
+    .number .number-box {
+        display: block;
+    }
+}
+
+.number .number-box .number-item {
+    padding: 20px;
+    margin: 0 auto;
+    border: 1px solid var(--main-color);
+    position: relative;
+    z-index: 2;
+    width: calc(25% - 40px);
+    text-align: center;
+    width: 100%;
+}
+
+.number .number-box .number-item span {
+    display: block;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+     margin-bottom: 10px;
+}
+
+.number .number-box .number-item p {
+    color: var(--main-color);
+}
+/* End Number */
+/* Start About */
+.about {
+    padding-top: var(--padding-section);
+    padding-bottom: var(--padding-section);
+}
+
+.about .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(450px - 50px), 1fr));
+    gap: 50px;
+}
+
+.about .content .box {
+    display: flex;
+}
+
+.about .content .box i {
+    width: 50px;
+    height: 50px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 25px; */
+}
+
+.about .content .box .text {
+    flex-basis: 80%;
+    margin-left: 20px;
+}
+
+.about .content .box .text h4 {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 10px;
+}
+
+.about .content .box .text p {
+    font-size: 16px;
+    color: var(--p-color);
+    line-height: 1.5;
+}
+/* End About */
+/* Start Team */
+.team {
+    padding-top: var(--padding-section);
+    padding-bottom: var(--padding-section);
+    background-color: #FBFBFB;
+}
+
+.team .main {
+    text-align: center;
+}
+
+.team .main h3 {
+    font-size: 30px;
+}
+
+.team .main p {
+    font-size: 16px;
+    margin: 15px 0 50px;
+    color: var(--p-color);
+}
+
+.team .boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+@media (max-width: 767px) {
+    .team .boxes {
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
+
+    .team .boxes img {
+        width: 250px;
+    }
+}
+
+.team .boxes .box {
+    text-align: center;
+}
+
+.team .boxes .box h4 {
+    font-weight: normal;
+    font-size: 20px;
+    color: var(--main-color);
+    margin: 10px 0;
+}
+
+.team .boxes .box p {
+    color: var(--p-color);
+    font-size: 16px;
+    border-bottom: 2px solid #9b9b9b;
+    padding-bottom: 15px;
+}
+/* End Team */
+/* Start Clients */
+.client {
+    padding-top: var(--padding-section);
+    padding-bottom: var(--padding-section);
+}
+
+.client .image {
+    text-align: center;
+}
+
+.client .image img {
+    width: 130px;
+    display: inline-block;
+}
+
+.client .image img::after {
+    content: "";
+}
+/* End Clients */
+/* Start Quate */
+.quate {
+    background-image: url(../images/slider.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    height: 23vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quate::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(19, 19, 22, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.quate p {
+    color: white;
+    position: relative;
+    z-index: 5;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.quate p::after {
+    content: "";
+    width: 170px;
+    height: 2px;
+    background-color: var(--main-color);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.quate span {
+    display: inline-block;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    z-index: 5;
+}
+/* End Quate */
+/* Start Contact */
+.contact {
+    padding-top: var(--padding-section);
+    padding-bottom: var(--padding-section);
+    background-color: #FBFBFB;
+}
+
+.contact .boxes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media (max-width: 991px) {
+    .contact .boxes {
+        flex-direction: column;
+    }
+}
+
+.contact .boxes .box {
+    text-align: center;
+    margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+    .contact .boxes .box {
+        margin:  0 auto 50px;
+    }
+}
+
+.contact .boxes .box i {
+    color: var(--main-color);
+    font-size: 25px;
+}
+
+.contact .boxes .box h4 {
+    margin: 20px 0 10px;
+}
+
+.contact .boxes .box p {
+    color: var(--p-color);
+    font-size: 20px;
+}
+/* End Contact */
+/* Start Massage */
+.massage {
+    background-image: url(../images/contact-us.jpg);
+    background-size: cover;
+    height: 75vh;
+    position: relative;
+}
+
+.massage::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(19, 19, 22, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.massage .text {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.massage .text h3 {
+    margin: 40px 0 10px;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.massage .text p {
+    width: 65%;
+    margin: 0 auto 40px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.massage .contact-info {
+    font-size: 15px;
+    position: relative;
+    z-index: 4;
+}
+
+.massage .contact-info form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.massage .contact-info form .main-input {
+    background-color: inherit;
+    padding: 10px;
+    display: block;
+    margin-bottom: 30px;
+    border: 2px solid #ccc;
+    color: white;
+}
+
+.massage .contact-info form .main-input:focus {
+    outline: none;
+    border: 2px solid var(--main-color);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.massage .contact-info form .main-input:not(textarea) {
+    width: calc(33% - 20px);
+}
+
+@media (max-width: 767px) {
+    .massage .contact-info form .main-input:not(textarea) {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.massage .contact-info form textarea {
+    width: 100%;
+    height: 200px;
+}
+
+@media (max-width: 767px) {
+    .massage .contact-info form textarea {
+        margin-top: 15px;
+    }
+}
+
+.massage .contact-info form button {
+    margin: auto;
+    border: none;
+    background-color: var(--main-color);
+    padding: 10px 35px;
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-block;
+}
+/* End Massage */
+/* Start Footer */
+.footer {
+    padding-top: 20px;
+    background-color: #131217;
+    text-align: center;
+    color: white;
+    height: 100%;
+}
+
+.footer p {
+    font-size: 16px;
+    color: var(--p-color);
+}
+
+.footer span {
+    color: var(--main-color);
+}
+
+.footer .social {
+    padding: 20px;
+}
+
+.footer .social i {
+    margin: 0 10px;
+    font-size: 15px;
+    width: 32px;
+}
+/* End Footer */
